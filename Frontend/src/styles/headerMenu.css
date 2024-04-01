@@ -1,0 +1,17 @@
+.login-drawer-container {
+    display: grid;
+    gap: 10px;
+
+    .login-drawer-div {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+
+}
+
+.input-signin {
+    padding-bottom: 20px;
+}
