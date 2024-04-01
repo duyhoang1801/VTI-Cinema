@@ -63,7 +63,10 @@ const HeaderMenu = () => {
                     </a>
                 </Dropdown>
                 <Dropdown
-                    menu={{ items: cinemaItems }}
+                    menu={{
+                        items: cinemaItems,
+                        onClick: handleAccountClick,
+                    }}
                 >
                     <a onClick={(e) => e.preventDefault()}>
                         <Space>
