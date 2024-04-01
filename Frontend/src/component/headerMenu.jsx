@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 import { Input, Menu } from 'antd';
 import { QuestionCircleOutlined, UserOutlined } from '@ant-design/icons';
 import logo from '../assets/logo-remove.png'
-import { Button, Modal } from 'antd';
+import { Drawer } from 'antd';
 const { Search } = Input;
 
 const filmItems = [
@@ -39,12 +39,29 @@ const accountItem = [
     },
 ];
 
-const handleAccountClick = ({ key }) => {
+const handleClick = ({ key }) => {
     message.info(`Click on item ${key}`);
 };
+
 const onSearch = (value, _e, info) => console.log(info?.source, value);
 const HeaderMenu = () => {
-    const [open, setOpen] = useState(false)
+    const [openLoginDrawer, setOpenLoginDrawer] = useState(false)
+    const [openSigninDrawer, setOpenSigninDrawer] = useState(false)
+    const handleAccountClick = ({ key }) => {
+        switch (key) {
+            case "login":
+                setOpenLoginDrawer(true);
+                break;
+            case "signin":
+                setOpenSigninDrawer(true);
+                break;
+        }
+    };
+    const onClose = () => {
+        setOpenLoginDrawer(false);
+        setOpenSigninDrawer(false);
+    };
+
     return (
         <>
             <div className="header-left">
@@ -52,7 +69,7 @@ const HeaderMenu = () => {
                 <Dropdown
                     menu={{
                         items: filmItems,
-                        onClick: handleAccountClick,
+                        onClick: handleClick,
                     }}
                 >
                     <a onClick={(e) => e.preventDefault()}>
@@ -65,7 +82,7 @@ const HeaderMenu = () => {
                 <Dropdown
                     menu={{
                         items: cinemaItems,
-                        onClick: handleAccountClick,
+                        onClick: handleClick,
                     }}
                 >
                     <a onClick={(e) => e.preventDefault()}>
@@ -95,7 +112,7 @@ const HeaderMenu = () => {
                 <Dropdown
                     menu={{
                         items: accountItem,
-                        onClick: () => setOpen(true),
+                        onClick: handleAccountClick,
                     }}
                 >
                     <a onClick={(e) => e.preventDefault()}>
@@ -105,19 +122,28 @@ const HeaderMenu = () => {
                     </a>
                 </Dropdown>
             </div>
-            <Modal
-                title="Modal 1000px width"
-                centered
-                open={open}
-                onOk={() => setOpen(false)}
-                onCancel={() => setOpen(false)}
-                width={1000}
-
+            <Drawer
+                title="Đăng nhập"
+                placement='left'
+                closable={false}
+                onClose={onClose}
+                open={openLoginDrawer}
             >
-                <p>some contents...</p>
-                <p>some contents...</p>
-                <p>some contents...</p>
-            </Modal>
+                <p>Some contents...</p>
+                <p>Some contents...</p>
+                <p>Some contents...</p>
+            </Drawer>
+            <Drawer
+                title="Đăng ký"
+                placement='left'
+                closable={false}
+                onClose={onClose}
+                open={openSigninDrawer}
+            >
+                <p>Some contents...</p>
+                <p>Some contents...</p>
+                <p>Some contents...</p>
+            </Drawer>
         </>
     )
 };
