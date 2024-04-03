@@ -13,6 +13,7 @@ public class Film {
 
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "movie_name")
@@ -40,21 +41,13 @@ public class Film {
     private String image;
 
 
-    @ManyToMany
-    @JoinTable(
-            name = "movie_country",
-            joinColumns = @JoinColumn(name = "movie_id", nullable = false),
-            inverseJoinColumns = @JoinColumn(name = "country_id", nullable = false)
-    )
-    private List<Country> countries;
+    @ManyToOne
+    @JoinColumn(name = "country_id")
+    private Country country;
 
 
-    @ManyToMany
-    @JoinTable(
-            name = "movie_genre",
-            joinColumns = @JoinColumn(name = "movie_id", nullable = false),
-            inverseJoinColumns = @JoinColumn(name = "genre_id", nullable = false)
-    )
-    private List<Genre> genres;
+    @ManyToOne
+    @JoinColumn(name = "genre_id")
+    private Genre genre;
 
 }

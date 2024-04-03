@@ -2,10 +2,14 @@ package cinema.dto;
 
 import cinema.entity.Country;
 import cinema.entity.Genre;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDate;
 import java.util.List;
 
+@Getter
+@Setter
 public class FilmDto {
 
     private String name;
@@ -24,9 +28,9 @@ public class FilmDto {
 
     private String image;
 
-    private List<Country> countries;
+    private String countryName;
 
-    private List<Genre> genres;
+    private String genreName;
 
 
 }

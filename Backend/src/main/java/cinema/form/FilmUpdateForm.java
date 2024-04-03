@@ -1,16 +1,8 @@
 package cinema.form;
 
-import cinema.entity.Country;
-import cinema.entity.Genre;
-import lombok.Getter;
-import lombok.Setter;
-
 import java.time.LocalDate;
-import java.util.List;
 
-@Getter
-@Setter
-public class FilmCreateForm {
+public class FilmUpdateForm {
 
     private String name;
 

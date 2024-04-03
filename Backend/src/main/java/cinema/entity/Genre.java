@@ -12,6 +12,7 @@ public class Genre {
 
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
 
@@ -19,6 +20,6 @@ public class Genre {
     private String name;
 
 
-    @ManyToMany(mappedBy = "genres")
+    @OneToMany(mappedBy = "genre")
     private List<Film> films;
 }

@@ -11,13 +11,14 @@ public class Country {
 
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "name")
     private String name;
 
 
-    @ManyToMany(mappedBy = "countries")
+    @OneToMany(mappedBy = "country")
     private List<Film> films;
 
 
