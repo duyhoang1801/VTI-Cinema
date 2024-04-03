@@ -2,6 +2,7 @@ package cinema.specification;
 
 import cinema.entity.Film;
 import cinema.form.FilmFilterForm;
+import cinema.utlis.DBUtils;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Predicate;
@@ -46,7 +47,6 @@ public class FilmSpecification  {
 
                     predicates.add(hasGenreLike);
                 }
-
 
                 return builder.and(predicates.toArray(new Predicate[0]));
             }
