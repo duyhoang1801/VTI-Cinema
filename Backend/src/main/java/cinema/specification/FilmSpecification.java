@@ -2,7 +2,6 @@ package cinema.specification;
 
 import cinema.entity.Film;
 import cinema.form.FilmFilterForm;
-import cinema.utlis.DBUtils;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Predicate;
