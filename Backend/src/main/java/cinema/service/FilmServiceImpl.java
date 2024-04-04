@@ -40,11 +40,6 @@ public class FilmServiceImpl implements FilmService {
 
         return filmsDto;
 
-
-//        Specification<Post> spec = PostSpecification.buildSpec(form); //--> buildSpec là Method static nên có thể được gọi trực tiếp từ Class
-
-//        return postRepository.findAll(spec, pageable)
-//                .map(post -> modelMapper.map(post, PostDto.class).withSelfRel());
     }
 
 
