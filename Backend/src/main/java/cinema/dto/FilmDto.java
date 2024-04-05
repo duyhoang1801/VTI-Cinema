@@ -12,6 +12,8 @@ import java.util.List;
 @Setter
 public class FilmDto {
 
+    private Integer id;
+
     private String name;
 
     private String description;

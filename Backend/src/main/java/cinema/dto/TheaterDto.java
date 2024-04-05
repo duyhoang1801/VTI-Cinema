@@ -7,5 +7,7 @@ import lombok.Setter;
 @Setter
 public class TheaterDto {
 
+    private Integer id;
+
     private String name;
 }

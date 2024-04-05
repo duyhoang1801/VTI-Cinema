@@ -44,10 +44,7 @@ public class FilmController {
 
     @PutMapping("/api/v1/film/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public FilmDto updateFilm(
-            @PathVariable("id") Integer id,
-            @RequestBody FilmUpdateForm form
-    ){
+    public FilmDto updateFilm(@PathVariable Integer id, @RequestBody FilmUpdateForm form) {
         return filmService.updateFilm(id, form);
     }
 
