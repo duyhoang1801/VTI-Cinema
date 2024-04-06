@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table
+@Table(name = "theater")
 public class Theater {
 
 
