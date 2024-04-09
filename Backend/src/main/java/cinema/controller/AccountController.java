@@ -38,6 +38,7 @@ public class AccountController {
     }
 
     @GetMapping("/{id}")
+    @PreAuthorize(value = "hasAuthority('ADMIN')")
     public Account getById(@PathVariable int id) {
         return accountService.getById(id);
     }

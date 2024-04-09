@@ -16,18 +16,21 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 @Transactional
-public class AccountService implements IAccountService{
+public class AccountService implements IAccountService, UserDetailsService{
     @Autowired
     private AccountRepository accountRepository;
     @Autowired
@@ -98,4 +101,21 @@ public class AccountService implements IAccountService{
         return accountRepository.findAll(condition, pageRequest);
     }
 
+    @Override
+    public UserDetails loadUserByUsername(String phoneNumber) throws UsernameNotFoundException {
+        Optional<Account> accountOptional = accountRepository.findByPhoneNumber(phoneNumber);
+        if (accountOptional.isEmpty()) {
+            throw new UsernameNotFoundException("Số điện thoại không tồn tại");
+        }
+        Account account = accountOptional.get();
+        // Nếu có tồn tại -> tạo ra đối tượng Userdetails từ Account
+        /**
+         * phonenumber
+         * account.getPassword(): password đã được mã hóa
+         * authorities: List quyền của user
+         */
+        List<GrantedAuthority> authorities = new ArrayList<>();
+        authorities.add(account.getRole());
+        return new User(phoneNumber, account.getPassword(), authorities);
+    }
 }
