@@ -3,6 +3,7 @@ package cinema.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+@Entity
 @Data
 public class CinemaRoom {
     @Id

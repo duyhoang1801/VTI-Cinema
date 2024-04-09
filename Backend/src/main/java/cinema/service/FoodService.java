@@ -106,4 +106,10 @@ public class FoodService implements IFoodService{
     public List<Food> findAllByFoodType(int foodTypeId) {
         return foodRepository.findAllByFoodType_Id(foodTypeId);
     }
+
+
+    @Override
+    public List<Food> findByTicketsId(Integer ticketId) {
+        return foodRepository.findByTicketsId(ticketId);
+    }
 }
