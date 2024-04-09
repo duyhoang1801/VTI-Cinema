@@ -38,7 +38,7 @@ public class FoodController {
 
     @GetMapping("/{id}")
     public List<Food> findAllByTicketsId(@PathVariable Integer id) {
-        return foodService.findAllByTicketsId(id);
+        return foodService.findByTicketsId(id);
     }
 
 

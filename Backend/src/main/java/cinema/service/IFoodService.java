@@ -23,6 +23,6 @@ public interface IFoodService {
 
     List<Food> findAllByFoodType(int foodTypeId);
 
-    List<Food> findAllByTicketsId(Integer ticketId);
+    List<Food> findByTicketsId(Integer ticketId);
 
 }

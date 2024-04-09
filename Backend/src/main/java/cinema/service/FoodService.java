@@ -109,7 +109,7 @@ public class FoodService implements IFoodService{
 
 
     @Override
-    public List<Food> findAllByTicketsId(Integer ticketId) {
-        return foodRepository.findAllByTicketsId(ticketId);
+    public List<Food> findByTicketsId(Integer ticketId) {
+        return foodRepository.findByTicketsId(ticketId);
     }
 }
