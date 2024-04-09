@@ -35,6 +35,13 @@ public class FoodController {
         return foodService.getById(id);
     }
 
+
+    @GetMapping("/{id}")
+    public List<Food> findAllByTicketsId(@PathVariable Integer id) {
+        return foodService.findAllByTicketsId(id);
+    }
+
+
     @PutMapping("/update")
     @PreAuthorize(value = "hasAuthority('ADMIN')")
     public Food update(@RequestBody FoodUpdateRequest request) {

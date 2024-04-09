@@ -22,4 +22,7 @@ public interface IFoodService {
     Page<Food> search(FoodSearchRequest request);
 
     List<Food> findAllByFoodType(int foodTypeId);
+
+    List<Food> findAllByTicketsId(Integer ticketId);
+
 }
