@@ -21,7 +21,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@Configuration
+@Component
 public class JwtRequestFilter extends OncePerRequestFilter {
     private static final String AUTHORIZATION = "Authorization";
 
@@ -38,10 +38,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 
         if (StringUtils.containsAnyIgnoreCase(request, "/api/v1/auth/login-jwt")
                 || StringUtils.containsAnyIgnoreCase(request, "/api/v1/account/create")
-                || StringUtils.containsAnyIgnoreCase(request, "api/v1/account/active/")
-                || StringUtils.containsAnyIgnoreCase(request, "/api/v1/film/search")
-                || StringUtils.containsAnyIgnoreCase(request, "/api/v1/review/find-by-film")
-                || StringUtils.containsAnyIgnoreCase(request, "/api/v1/film/get-by-id")
+                || StringUtils.containsAnyIgnoreCase(request, "/api/v1/room/get-all")
                 || StringUtils.containsAnyIgnoreCase(request, "/swagger-ui")
                 || StringUtils.containsAnyIgnoreCase(request, "/swagger-resources")
                 || StringUtils.containsAnyIgnoreCase(request, "/v3/api-docs")) {

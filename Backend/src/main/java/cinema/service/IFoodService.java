@@ -21,5 +21,5 @@ public interface IFoodService {
 
     Page<Food> search(FoodSearchRequest request);
 
-    List<Food> findAllByFoodType(int foodTypeId);
+//     List<Food> findByFoodType(int foodTypeId);
 }

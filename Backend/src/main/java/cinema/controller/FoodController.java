@@ -53,8 +53,8 @@ public class FoodController {
         return foodService.search(request);
     }
 
-    @GetMapping("find-by-food-type")
-    public List<Food> findByFoodType(@RequestParam int foodTypeId) {
-        return foodService.findAllByFoodType(foodTypeId);
-    }
+//    @GetMapping("find-by-food-type")
+//    public List<Food> findByFoodType(@RequestParam int foodTypeId) {
+//        return foodService.findByFoodType(foodTypeId);
+//    }
 }

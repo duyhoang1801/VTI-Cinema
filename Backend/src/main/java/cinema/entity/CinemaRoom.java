@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
+@Entity
+@Table(name = "phong_chieu_phim")
 public class CinemaRoom {
     @Id
     @Column(name = "id_phong_chieu")
