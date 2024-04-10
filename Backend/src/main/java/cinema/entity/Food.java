@@ -3,6 +3,8 @@ package cinema.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 @Entity
 @Table(name = "do_an")
@@ -18,4 +20,8 @@ public class Food {
     @ManyToOne
     @JoinColumn(name = "id_the_loai_do_an")
     private FoodType foodType;
+
+
+    @ManyToMany(mappedBy = "foods")
+    private List<Ticket> tickets;
 }

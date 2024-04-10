@@ -4,10 +4,11 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Entity
-@Table(name = "`Account")
+@Table(name = "account")
 public class Account {
     @Id
     @Column(name ="id_account")
@@ -39,5 +40,8 @@ public class Account {
 
     @Column(name = "so_dien_thoai")
     private String phoneNumber;
+
+    @OneToMany(mappedBy = "account")
+    private List<Ticket> tickets;
 
 }

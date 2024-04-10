@@ -3,6 +3,7 @@ package cinema.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+@Entity
 @Data
 @Entity
 @Table(name = "phong_chieu_phim")
